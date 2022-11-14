@@ -5,11 +5,10 @@ USER root
 
 COPY ./custom_firefox/linux-x86_64/firefox.linux-x86_64.tar.bz2 /
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils
+RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
 
 # Firefox build needs newer version of libstdc from experimental package
 RUN echo "deb http://ftp.debian.org/debian sid main" >> /etc/apt/sources.list \
-  && wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add - \
   && DEBIAN_FRONTEND=noninteractive apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get -t sid install -y libc6 libstdc++6 libdbus-glib-1-2 \
   && DEBIAN_FRONTEND=noninteractive apt-get install -y nano binutils bzip2 tar \

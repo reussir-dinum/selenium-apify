@@ -5,8 +5,7 @@ USER root
 
 COPY ./custom_firefox/linux-x86_64/firefox.linux-x86_64.tar.bz2 /
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update \
-  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils
 
 # Firefox build needs newer version of libstdc from experimental package
 RUN echo "deb http://ftp.debian.org/debian sid main" >> /etc/apt/sources.list \

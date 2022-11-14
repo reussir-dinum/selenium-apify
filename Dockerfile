@@ -5,11 +5,9 @@ USER root
 
 COPY ./custom_firefox/linux-x86_64/firefox.linux-x86_64.tar.bz2 /
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update
+RUN DEBIAN_FRONTEND=noninteractive wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
 
-RUN wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | apt-key add -
-
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y apt-extracttemplates
+RUN apt-get update
 
 # Firefox build needs newer version of libstdc from experimental package
 RUN echo "deb http://ftp.debian.org/debian sid main" >> /etc/apt/sources.list \

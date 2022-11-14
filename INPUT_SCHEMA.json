@@ -1,0 +1,34 @@
+{
+    "title": "Schema for the my actor",
+    "type": "object",
+    "schemaVersion": 1,
+    "properties": {
+        "startUrls": {
+            "sectionCaption": "Basic configuration",
+            "title": "Start URLs",
+            "type": "array",
+            "description": "URLs to start with",
+            "prefill": [
+                {
+                    "url": "https://apify.com"
+                }
+            ],
+            "editor": "requestListSources"
+        },
+        "proxyUrl": {
+            "title": "Proxy URL",
+            "type": "string",
+            "maxLength": 1000,
+            "description": "Proxy to use (optional)",
+            "editor": "textfield"
+        },
+        "pageFunction": {
+            "title": "Page function",
+            "type": "string",
+            "description": "Function executed for each request",
+            "prefill": "async function pageFunction(context) {\n\n}",
+            "editor": "javascript"
+        }
+    },
+    "required": ["startUrls", "pageFunction"]
+}

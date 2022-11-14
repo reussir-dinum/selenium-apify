@@ -1,0 +1,7 @@
+{
+	"name": "actor-selenium",
+	"version": "0.1",
+	"buildTag": "latest",
+	"env": null,
+	"template": "puppeteer_single_page"
+}

@@ -1,4 +1,4 @@
-FROM apify/actor-node-chrome-xvfb
+FROM apify/actor-node-chrome-xvfb:v0.21.10
 
 # Run everything as root
 USER root
